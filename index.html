@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Web App của tôi</title>
+</head>
+<body>
+    <h1>Chào mừng bạn!</h1>
+    <button id="btnFetch">Lấy dữ liệu từ Google</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('btnFetch').addEventListener('click', async () => {
+            document.getElementById('result').innerText = "Đang tải...";
+            
+            try {
+                // Gọi tới /api/ thay vì link Google dài ngoằng
+                const response = await fetch('/api/?action=getData');
+                const data = await response.json();
+                document.getElementById('result').innerText = JSON.stringify(data);
+            } catch (error) {
+                document.getElementById('result').innerText = "Lỗi kết nối: " + error;
+            }
+        });
+    </script>
+</body>
+</html>
