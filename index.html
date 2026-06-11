@@ -1,27 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Web App của tôi</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
 </head>
 <body>
-    <h1>Chào mừng bạn!</h1>
-    <button id="btnFetch">Lấy dữ liệu từ Google</button>
-    <div id="result"></div>
-
-    <script>
-        document.getElementById('btnFetch').addEventListener('click', async () => {
-            document.getElementById('result').innerText = "Đang tải...";
-            
-            try {
-                // Gọi tới /api/ thay vì link Google dài ngoằng
-                const response = await fetch('/api/?action=getData');
-                const data = await response.json();
-                document.getElementById('result').innerText = JSON.stringify(data);
-            } catch (error) {
-                document.getElementById('result').innerText = "Lỗi kết nối: " + error;
-            }
-        });
-    </script>
+    <iframe src="https://script.google.com/macros/s/ID_CUA_BAN/exec"></iframe>
 </body>
 </html>
